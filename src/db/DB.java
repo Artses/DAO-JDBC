@@ -20,13 +20,12 @@ public class DB {
     }
 
     public static Connection getConnection(){
-        if (conn == null){
+        if (conn == null) {
             try {
                 Properties props = loadProperties();
                 String url = props.getProperty("dburl");
-                conn = DriverManager.getConnection(url,props);
-            }
-            catch (SQLException e){
+                conn = DriverManager.getConnection(url, props);
+            } catch (SQLException e) {
                 throw new DbException(e.getMessage());
             }
         }
@@ -38,24 +37,24 @@ public class DB {
             try{
                 conn.close();
             }
-            catch (SQLException e){
+            catch(SQLException e){
                 throw new DbException(e.getMessage());
             }
         }
     }
 
-    public static void closeResultSet(ResultSet rs){
-        try{
-            rs.close();
+    public static void closeStatement(Statement st){
+        try {
+            st.close();
         }
         catch (SQLException e){
             throw new DbException(e.getMessage());
         }
     }
 
-    public static void closeStatement(Statement st){
+    public static void closeResultSet(ResultSet rs){
         try{
-            st.close();
+            rs.close();
         }
         catch (SQLException e){
             throw new DbException(e.getMessage());
