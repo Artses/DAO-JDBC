@@ -1,13 +1,13 @@
 package program;
 
-import db.DB;
-import db.DbException;
 
-import java.sql.*;
-import java.util.Scanner;
+import model.entities.Departament;
 
 public class Main {
     public static void main(String[] args) {
+        Departament obj = new Departament(1,"books");
+
+        System.out.println(obj);
 
     }
 }
