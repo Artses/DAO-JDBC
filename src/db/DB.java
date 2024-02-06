@@ -44,20 +44,23 @@ public class DB {
     }
 
     public static void closeStatement(Statement st){
-        try {
-            st.close();
-        }
-        catch (SQLException e){
-            throw new DbException(e.getMessage());
+        if (st != null) {
+            try {
+                st.close();
+            } catch (SQLException e) {
+                throw new DbException(e.getMessage());
+            }
         }
     }
 
     public static void closeResultSet(ResultSet rs){
-        try{
-            rs.close();
-        }
-        catch (SQLException e){
-            throw new DbException(e.getMessage());
+        if (rs != null){
+            try{
+                rs.close();
+            }
+            catch (SQLException e){
+                throw new DbException(e.getMessage());
+            }
         }
     }
 }
