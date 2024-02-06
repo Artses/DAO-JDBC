@@ -17,9 +17,7 @@ public class Departament implements Serializable {
         this.name = name;
     }
 
-    public Departament()
-    {
-
+    public Departament() {
     }
 
     public Integer getId() {
